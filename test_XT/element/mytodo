@@ -1,0 +1,40 @@
+div_locator:
+    iframe: None
+    xpath: //*[@class="needTobe"]
+    备注: 待办业务div标签
+olddbnum:
+  iframe: None
+  xpath: /html/body/div[3]/div/ul/li[1]/h3/i
+  备注: 初始进入系统待办数量
+btnRed:
+    iframe: None
+    xpath: //*[@class="btnRed"]
+    备注: 签收凭证
+qianshu:
+  iframe: None
+  xpath: //*[@id="jkrqsForm"]/div[12]/table
+  备注: 点击签署table
+qianshu2:
+  iframe: None
+  xpath: //*[@id="jkrqsForm"]/div[13]/table
+  备注: 点击非电费类签署table
+okBtn:
+  iframe: None
+  xpath: //*[@class="jbox-button jbox-button-focus"]
+  备注: 点击签署确定按钮
+dzqzqianshu:
+  iframe: None
+  xpath: //*[@data-keyword="（电子签章）"]
+  备注: 点击签署按钮
+commentinput:
+  iframe: None
+  xpath: //*[@id="comment"]
+  备注: 输入审核意见
+subBtn:
+  iframe: None
+  xpath: //*[@class="btnRed bigBtn"]
+  备注: 点击提交按钮
+pbq:
+  iframe: None
+  xpath: //*[@class="needTips"]
+  备注: p标签

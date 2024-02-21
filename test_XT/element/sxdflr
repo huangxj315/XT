@@ -1,0 +1,53 @@
+
+billid:
+  iframe: None
+  xpath: //*[@name="billid"]
+  备注: 凭证编号
+sgndt:
+  iframe: None
+  xpath: //*[@name="sgndt"]
+  备注: 凭证日期
+enddt:
+  iframe: None
+  xpath: //*[@name="enddt"]
+  备注: 凭证到期日
+vouamt:
+  iframe: None
+  xpath: //*[@name="vouamt"]
+  备注: 凭证金额
+payamt:
+  iframe: None
+  xpath: //*[@name="payamt"]
+  备注: 应付金额
+rcunm:
+  iframe: None
+  xpath: //*[@name="rcunm"]
+  备注: 收款方名称
+rtaxno:
+  iframe: None
+  xpath: //*[@name="rtaxno"]
+  备注: 收款方税务号
+memo:
+  iframe: None
+  xpath: //*[@name="memo"]
+  备注: 凭证摘要
+conno:
+  iframe: None
+  xpath: //*[@name="conno"]
+  备注: 合同编号
+connm:
+  iframe: None
+  xpath: //*[@name="connm"]
+  备注: 合同名称
+conamt:
+  iframe: None
+  xpath: //*[@name="conamt"]
+  备注: 应付款金额
+conqddt:
+  iframe: None
+  xpath: //*[@name="conqddt"]
+  备注: 合同签订日期
+subBtn:
+  iframe: None
+  xpath: //*[@id="subBtn"]
+  备注: 合同签订日期
