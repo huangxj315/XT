@@ -289,6 +289,6 @@ signdate:
   备注: 签署日期
 khcg:
   iframe: None
-  xpath: /html/body/div[3]/div[4]/p[3]
+  xpath: //*[text()="开户信息审核中，请耐心等待！"]
   备注: 开户中
 

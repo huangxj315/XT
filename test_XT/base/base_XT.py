@@ -123,6 +123,8 @@ class base_NW(base):
             row = userSheet.row_values(5) # 获取第五行数据
         if usertype=='新供应商':
             row = userSheet.row_values(6) # 获取第五行数据
+        if usertype=='山西电费供应商':
+            row = userSheet.row_values(7) # 获取第五行数据
         getUser = row[0]
         getPassword = row[1]
         getCode = row[2]

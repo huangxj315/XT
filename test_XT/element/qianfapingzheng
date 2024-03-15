@@ -37,6 +37,10 @@ nextBtn:
   iframe: None
   xpath: //*[@name="nextBtn"]
   备注: 点击下一步
+qdBtn:
+  iframe: None
+  xpath: //*[text()="确定"]
+  备注: 确定提示框按钮
 billnum:
   iframe: None
   xpath: //*[@name="settid"]
@@ -76,5 +80,5 @@ subBtn:
 
 qfwc:
     iframe: None
-    xpath: /html/body/div[3]/div[2]/div/div[3]/h2
+    xpath: //*[text()="签发完成"]
     备注: 签发完成提示

@@ -37,8 +37,9 @@ class test_yfpzlr():
         date_str = datetime.datetime.strftime(curr_time, '%Y-%m-%d')
         amount = random.randint(1000, 99999)
         gmf = '大唐华银电力股份有限公司'
-        xsf = '山东顺通电力有限公司'
-        # 选择业务类型（非电费）
+        xsf = '赤峰宏基建筑（集团）有限公司'
+        # xsf = '内蒙古广纳煤业（集团）有限责任公司'
+        # 选择业务类型（电费）
         get_driver.get_element('entryvoucher', 'billtype_df').click()
         # 输入合同编号
         get_driver.get_element('entryvoucher', 'contno_input').send_keys(contno)

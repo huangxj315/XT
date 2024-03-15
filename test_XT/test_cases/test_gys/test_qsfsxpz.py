@@ -60,17 +60,24 @@ class test_qsfsxpz():
             if should_break:
                 break
         # 点击签署按钮
-        table = get_driver.get_element('mytodo', 'qianshu2')
-        tbody = table.find_element_by_tag_name('tbody')
-        for tr in tbody.find_elements_by_tag_name('tr'):
-            for a in tr.find_elements_by_tag_name('a'):
-                if a.text == '签署':
-                    a.click()
-                    sleep(11)
-                    # 点击签署页面确定按钮按钮
-                    get_driver.get_element('mytodo', 'okBtn').click()
-                    sleep(5)
-                    break
+        # table = get_driver.get_element('mytodo', 'qianshu2')
+        # tbody = table.find_element_by_tag_name('tbody')
+        # for tr in tbody.find_elements_by_tag_name('tr'):
+        #     for a in tr.find_elements_by_tag_name('a'):
+        #         if a.text == '签署':
+        #             a.click()
+        #             sleep(11)
+        #             # 点击签署页面确定按钮按钮
+        #             get_driver.get_element('mytodo', 'okBtn').click()
+        #             sleep(5)
+        #             break
+        qsbtns = get_driver.get_elements('mytodo', 'qianshu')
+        for qsbtn in qsbtns:
+            qsbtn.click()
+            sleep(11)
+            # 点击签署页面确定按钮按钮
+            get_driver.get_element('mytodo', 'okBtn').click()
+            sleep(5)
         # 输入审核意见
         get_driver.get_element('mytodo', 'commentinput').send_keys('脚本自动签收凭证')
         # 点击提交申请按钮
@@ -79,15 +86,15 @@ class test_qsfsxpz():
         with allure.step("验证该凭证已签收成功"):
             # 点击融资管理tab
             get_driver.get_element('homepage', 'rongziguanli_tab').click()
-            # 点击电子债权凭证
-            get_driver.get_element('rongziguanli-dzzqpz', 'dzzqpz').click()
-            # 点击已签收
-            get_driver.get_element('rongziguanli-dzzqpz', 'yiqianshou').click()
+            # 点击应收账款确权
+            get_driver.get_element('rongziguanli-yszkqq', 'yszkqq').click()
+            # 点击已确权
+            get_driver.get_element('rongziguanli-yszkqq', 'yiqianshou').click()
             # 输入凭证金额
-            get_driver.get_element('rongziguanli-dzzqpz', 'vouchmoney').send_keys(pzamt)
+            get_driver.get_element('rongziguanli-yszkqq', 'vouchmoney').send_keys(pzamt)
             # 点击查询
-            get_driver.get_element('rongziguanli-dzzqpz', 'searchButton').click()
-            result = get_driver.get_element('rongziguanli-dzzqpz', 'yqscxresult')
+            get_driver.get_element('rongziguanli-yszkqq', 'searchButton').click()
+            result = get_driver.get_element('rongziguanli-yszkqq', 'yqscxresult')
             assert result.text == "共有1条，每页显示：20条"
 
 if __name__ == "__main__":

@@ -48,6 +48,11 @@ class test_qfpz():
         get_driver.get_element('qianfapingzheng', 'zhaiyaoinput').send_keys('脚本自动签发凭证'+billno)
         # 点击下一步按钮
         get_driver.get_element('qianfapingzheng', 'nextBtn').click()
+        okbutton=get_driver.get_element('qianfapingzheng', 'qdBtn')
+        # 判断按钮是否存在
+        if okbutton:
+            # 如果存在，点击按钮
+            okbutton.click()
         #获取付款承诺函单号，并将财务凭证编号存入参数标中
         billnum = get_driver.get_element('qianfapingzheng', 'billnum').get_attribute('value')
         with allure.step("将财务凭证编号存到参数表中"):

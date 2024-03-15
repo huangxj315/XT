@@ -28,12 +28,12 @@ class test_smrz():
         companyname=get_driver.generate_company_name()
         #输入企业名称
         #get_driver.get_element('smrz','firmname').send_keys(companyname)
-        get_driver.get_element('smrz', 'firmname').send_keys('广西新电力投资集团有限责任公司')
-        # 生成统一社会信用代码
+        get_driver.get_element('smrz', 'firmname').send_keys('山西三建集团有限公司')
+        # 生成统一社会信用代码河北君安电力工程
         credit_code = get_driver.generate_uscc()
         #输入企业统一社会信用代码
         #get_driver.get_element('smrz','yingyezz').send_keys(credit_code)
-        get_driver.get_element('smrz', 'yingyezz').send_keys('91450100MA5P0QRCX7')
+        get_driver.get_element('smrz', 'yingyezz').send_keys('911404001107629706')
         #点击企业规模
         qygm=Select(get_driver.get_element('smrz', 'qiygm'))
         qygm.select_by_visible_text("大型企业")
@@ -66,13 +66,13 @@ class test_smrz():
         qygm=Select(get_driver.get_element('smrz', 'regionSelect'))
         qygm.select_by_visible_text("管城回族区")
         #输入详细地址
-        get_driver.get_element('smrz','streetname').send_keys('中兴南路309号步步高大厦')
+        get_driver.get_element('smrz','streetname').send_keys('中兴南路309号河南商会大厦26层')
         # #输入开业时间
         # get_driver.get_element('smrz','opendate').send_keys('2023-07-18')
         #输入经营开始时间
         get_driver.get_element('smrz','optestart').send_keys('2023-07-18')
         #输入经营结束时间
-        get_driver.get_element('smrz','opteend').send_keys('2033-07-18')
+        get_driver.get_element('smrz','opteend').send_keys('2043-07-18')
         # 点击营业执照的上传图片
         get_driver.get_element('smrz', 'yyzzlink').click()
         #选择所需要上传的附件
@@ -81,14 +81,16 @@ class test_smrz():
         #输入法人姓名
         frname=get_driver.generate_name()
         get_driver.get_element('smrz','farnname').send_keys(frname)
+        #get_driver.get_element('smrz','farnname').send_keys('')
         #输入法人身份证号
         fridnum=get_driver.generate_id()
         #fridnum = get_driver.generate_id()
         get_driver.get_element('smrz','farnzjno').send_keys(fridnum)
+        #get_driver.get_element('smrz','farnzjno').send_keys('')
         #输入身份证开始时间
         get_driver.get_element('smrz','credstarttime').send_keys('2023-07-18')
         #输入身份证结束时间
-        get_driver.get_element('smrz','credendtime').send_keys('2033-07-18')
+        get_driver.get_element('smrz','credendtime').send_keys('2043-07-18')
         #输入法人手机号
         frtel=get_driver.generate_phone_number()
         get_driver.get_element('smrz','farnshji').send_keys(frtel)
@@ -154,7 +156,7 @@ class test_smrz():
         # 输入股东身份证开始时间
         get_driver.get_element('smrz', 'certstart').send_keys('2023-07-18')
         # 输入股东身份证结束时间
-        get_driver.get_element('smrz', 'certend').send_keys('2033-07-18')
+        get_driver.get_element('smrz', 'certend').send_keys('2043-07-18')
         # 输入股东持股比例
         get_driver.get_element('smrz', 'cgrate').send_keys('45')
         #选择是否控股股东或实际控制人
@@ -175,19 +177,19 @@ class test_smrz():
         # 输入受益人身份证开始时间
         get_driver.get_element('smrz', 'syrcertstart').send_keys('2023-07-18')
         # 输入受益人身份证结束时间
-        get_driver.get_element('smrz', 'syrcertend').send_keys('2033-07-18')
+        get_driver.get_element('smrz', 'syrcertend').send_keys('2043-07-18')
         # 输入受益人地址
         get_driver.get_element('smrz', 'addr').send_keys('中国（上海）自由贸易试验区纳贤路701号1#楼3层')
         # 点击股东信息下一步
         get_driver.get_element('smrz', 'qyxxnextbutton').click()
-        # 点击附件登记表上传附件
-        get_driver.get_element('smrz', 'xxdjb').click()
-        # 点击信息登记表选择文件按钮
-        get_driver.get_element('smrz', 'webuploader-pick').click()
-        #选择所需要上传的附件
-        get_driver.uploadFile("C:\\Users\\Administrator\\Pictures\\4.jpg")
-        # 点击上传附件后的确定按钮
-        get_driver.get_element('smrz', 'uploadbutton').click()
+        # # 点击附件登记表上传附件
+        # get_driver.get_element('smrz', 'xxdjb').click()
+        # # 点击信息登记表选择文件按钮
+        # get_driver.get_element('smrz', 'webuploader-pick').click()
+        # #选择所需要上传的附件
+        # get_driver.uploadFile("C:\\Users\\Administrator\\Pictures\\4.jpg")
+        # # 点击上传附件后的确定按钮
+        # get_driver.get_element('smrz', 'uploadbutton').click()
         # 点击公司章程选择文件按钮
         get_driver.get_element('smrz', 'gszc').click()
         # 点击公司章程选择文件按钮
@@ -215,7 +217,8 @@ class test_smrz():
         # 点击股东信息下一步
         get_driver.get_element('smrz', 'qyxxnextbutton').click()
         # 输入银行账户
-        get_driver.get_element('smrz', 'accid').send_keys('20237311414001')
+        bankno = get_driver.get_bianhao()
+        get_driver.get_element('smrz', 'accid').send_keys(bankno)
         #点击开户行
         get_driver.get_element('smrz', 'khh').click()
         get_driver.get_element('smrz', 'khhmc').click()
@@ -246,7 +249,7 @@ class test_smrz():
         # 点击授权书的上传附件
         get_driver.get_element('smrz', 'scfj').click()
         #选择所需要上传的附件
-        get_driver.uploadFile("C:\\Users\\Administrator\\Pictures\\交e宝授权书1214.png")
+        get_driver.uploadFile("C:\\Users\\Administrator\\Pictures\\shouquanshu.png")
         sleep(3)
         #输入签署日期
         curr_time = datetime.datetime.now()
@@ -254,7 +257,7 @@ class test_smrz():
         get_driver.get_element('smrz', 'signdate').send_keys(date_str)
         #点击开立电子记账薄
         get_driver.get_element('smrz', 'amtnextBtn').click()
-        sleep(5)
+        sleep(30)
         with allure.step("验证该实名认证成功"):
             result = get_driver.get_element('smrz', 'khcg')
             assert result.text == "开户信息审核中，请耐心等待！"

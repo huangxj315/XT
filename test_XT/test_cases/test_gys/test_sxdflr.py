@@ -36,8 +36,12 @@ class test_sxdflr():
         #打开模拟推山西电费类凭证数据地址
         get_driver.get_lrsxdfurl()
         amount = random.randint(1000000, 999990000)
-        skf='北京鲜花自由文化传播有限公司'
-        sckswno='91110105MA01YTT4X7'
+        # skf='北京鲜花自由文化传播有限公司'
+        # sckswno='91110105MA01YTT4X7'
+        skf='赤峰宏基建筑（集团）有限公司'
+        sckswno='91150404783022096R'
+        # skf='内蒙古广纳煤业（集团）股份有限责任公司'
+        # sckswno='911506936609936349'
         #输入凭证编号
         billno = get_driver.get_bianhao()
         billid=get_driver.get_element('sxdflr', 'billid')
@@ -51,7 +55,10 @@ class test_sxdflr():
         #输入凭证到期日
         enddate=get_driver.get_element('sxdflr', 'enddt')
         enddate.clear()
-        enddate.send_keys('20240630')
+        # enddate.send_keys('20240329')
+        zddate=get_driver.get_workingday(10)
+        xzdrq = zddate.replace("-", "")
+        enddate.send_keys(xzdrq)
         #输入凭证金额
         vouamt=get_driver.get_element('sxdflr', 'vouamt')
         vouamt.clear()

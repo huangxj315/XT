@@ -12,12 +12,8 @@ btnRed:
     备注: 签收凭证
 qianshu:
   iframe: None
-  xpath: //*[@id="jkrqsForm"]/div[12]/table
-  备注: 点击签署table
-qianshu2:
-  iframe: None
-  xpath: //*[@id="jkrqsForm"]/div[13]/table
-  备注: 点击非电费类签署table
+  xpath: //*[text()="签署"]
+  备注: 点击签署按钮
 okBtn:
   iframe: None
   xpath: //*[@class="jbox-button jbox-button-focus"]

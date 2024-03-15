@@ -24,7 +24,7 @@ class test_qspz():
     @allure.story("签收模拟山西推送的债权凭证")
     def test_qspz(self,get_driver):
         #用户登录
-        get_driver.start_houtai(1,'供应商')
+        get_driver.start_houtai(1,'山西电费供应商')
         # 设置当前的locale为你所使用的地区的格式
         locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
         amount=get_driver.get_paras('voucheramount', 1)
@@ -58,18 +58,26 @@ class test_qspz():
             # 检查标志变量是否为 True，如果是，则跳出外层循环
             if should_break:
                 break
+        # # 点击签署按钮
+        # table = get_driver.get_element('mytodo', 'qianshu')
+        # tbody = table.find_element_by_tag_name('tbody')
+        # for tr in tbody.find_elements_by_tag_name('tr'):
+        #     for a in tr.find_elements_by_tag_name('a'):
+        #         if a.text == '签署':
+        #             a.click()
+        #             sleep(11)
+        #             # 点击签署页面确定按钮按钮
+        #             get_driver.get_element('mytodo', 'okBtn').click()
+        #             sleep(5)
+        #             break
         # 点击签署按钮
-        table = get_driver.get_element('mytodo', 'qianshu')
-        tbody = table.find_element_by_tag_name('tbody')
-        for tr in tbody.find_elements_by_tag_name('tr'):
-            for a in tr.find_elements_by_tag_name('a'):
-                if a.text == '签署':
-                    a.click()
-                    sleep(11)
-                    # 点击签署页面确定按钮按钮
-                    get_driver.get_element('mytodo', 'okBtn').click()
-                    sleep(5)
-                    break
+        qsbtns = get_driver.get_elements('mytodo', 'qianshu')
+        for qsbtn in qsbtns:
+            qsbtn.click()
+            sleep(11)
+            # 点击签署页面确定按钮按钮
+            get_driver.get_element('mytodo', 'okBtn').click()
+            sleep(5)
         # 输入审核意见
         get_driver.get_element('mytodo', 'commentinput').send_keys('脚本自动签收凭证')
         # 点击提交申请按钮
@@ -86,6 +94,7 @@ class test_qspz():
             get_driver.get_element('rongziguanli-dzzqpz', 'vouchmoney').send_keys(pzamt)
             # 点击查询
             get_driver.get_element('rongziguanli-dzzqpz', 'searchButton').click()
+            sleep(2)
             result = get_driver.get_element('rongziguanli-dzzqpz', 'yqscxresult')
             assert result.text == "共有1条，每页显示：20条"
 
