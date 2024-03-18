@@ -1,0 +1,81 @@
+zhsz:
+  iframe: None
+  xpath: //*[text()="账户设置"]
+  备注: 账户设置
+wdxx:
+  iframe: None
+  xpath: //*[text()="我的信息"]
+  备注: 我的信息
+glqy:
+  iframe: None
+  xpath: //*[@href="/pcenter/realname/relationfirm-ui"]
+  备注: 添加关联企业
+firmname:
+  iframe: None
+  xpath: //*[@id="firmname"]
+  备注: 企业名称输入
+yingyezz:
+  iframe: None
+  xpath: //*[@id="yingyezz"]
+  备注: 统一社会信用代码输入
+qiygm:
+  iframe: None
+  xpath: //*[@id="qiygm"]
+  备注: 选择企业规模
+areaSelect:
+  iframe: None
+  xpath: //*[@id="areaSelect"]
+  备注: 选择大区
+provinceSelect:
+  iframe: None
+  xpath: //*[@id="provinceSelect"]
+  备注: 选择省份
+citySelect:
+  iframe: None
+  xpath: //*[@id="citySelect"]
+  备注: 选择城市
+regionSelect:
+  iframe: None
+  xpath: //*[@id="regionSelect"]
+  备注: 选择区
+streetname:
+  iframe: None
+  xpath: //*[@id="streetname"]
+  备注: 输入详情地址信息
+farnname:
+  iframe: None
+  xpath: //*[@id="farnname"]
+  备注: 法人姓名
+farnzjno:
+  iframe: None
+  xpath: //*[@id="farnzjno"]
+  备注: 法人身份证号
+credstarttime:
+  iframe: None
+  xpath: //*[@id="credstarttime"]
+  备注: 法人身份证开始时间
+credendtime:
+  iframe: None
+  xpath: //*[@id="credendtime"]
+  备注: 法人身份证有效结束时间
+farnshji:
+  iframe: None
+  xpath: //*[@id="farnshji"]
+  备注: 法人手机号
+sendSms:
+  iframe: None
+  xpath: //*[@id="sendSms"]
+  备注: 获取验证码
+code:
+  iframe: None
+  xpath: //*[@id="code"]
+  备注: 输入验证码
+nextBtn:
+  iframe: None
+  xpath: //*[@id="nextBtn"]
+  备注: 下一步
+khcg:
+  iframe: None
+  xpath: //*[text()="开户信息审核中，请耐心等待！"]
+  备注: 开户中
+

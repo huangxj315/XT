@@ -301,8 +301,12 @@ class base_NW(base):
     def generate_company_name(self):
         prefix = ['中国电力', '龙源电缆', '长江电力', '能源电力', '成蜀电缆']
         suffix = ['有限公司', '股份有限公司', '有限责任公司', '建设有限公司']
-        return random.choice(prefix) + ' ' + random.choice(string.ascii_uppercase) + random.choice(
-            string.ascii_lowercase) + ' ' + random.choice(suffix)
+        # return random.choice(prefix) + ' ' + random.choice(string.ascii_uppercase) + random.choice(
+        #     string.ascii_lowercase) + ' ' + random.choice(suffix)
+        # 生成中文随机名字
+        chinese_name = ''.join([chr(random.randint(0x4e00, 0x9fa5)) for _ in range(2)])
+        # 拼接生成企业名称
+        return random.choice(prefix) + chinese_name + random.choice(suffix)
 
     def generate_id_number(self):
         province_code = '110000'  # 假设生成的身份证号码的省份代码为广东省（参考真实代码）

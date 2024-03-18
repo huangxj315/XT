@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 @Auth ： 黄香杰
-@File ：test_smrz.py
+@File ：test_glqy.py
 
 """
 import datetime
@@ -15,120 +15,120 @@ from selenium.webdriver.support.ui import Select
 
 
 @allure.feature("供应商-注册新的账户-新供应商实名认证")
-class test_smrz():
+class test_glqy():
 
     def setup_method(self,method):
         mybase = base()
         mybase.caseName('test_XT', method.__name__)
 
-    def test_smrz(self, get_driver):
+    def test_glqy(self, get_driver):
         # 用户登录
         get_driver.start_houtai(1,'新供应商')
         #生成企业名称
         companyname=get_driver.generate_company_name()
         #输入企业名称
-        #get_driver.get_element('smrz','firmname').send_keys(companyname)
-        get_driver.get_element('smrz', 'firmname').send_keys('山西三建集团有限公司')
+        #get_driver.get_element('glqy','firmname').send_keys(companyname)
+        get_driver.get_element('glqy', 'firmname').send_keys('山西三建集团有限公司')
         # 生成统一社会信用代码河北君安电力工程
         credit_code = get_driver.generate_uscc()
         #输入企业统一社会信用代码
-        #get_driver.get_element('smrz','yingyezz').send_keys(credit_code)
-        get_driver.get_element('smrz', 'yingyezz').send_keys('911404001107629706')
+        #get_driver.get_element('glqy','yingyezz').send_keys(credit_code)
+        get_driver.get_element('glqy', 'yingyezz').send_keys('911404001107629706')
         #点击企业规模
-        qygm=Select(get_driver.get_element('smrz', 'qiygm'))
+        qygm=Select(get_driver.get_element('glqy', 'qiygm'))
         qygm.select_by_visible_text("大型企业")
         #点击企业类型
-        qygm=Select(get_driver.get_element('smrz', 'qiyeleix'))
+        qygm=Select(get_driver.get_element('glqy', 'qiyeleix'))
         qygm.select_by_visible_text("国有")
         #点击所属行业
-        qygm=Select(get_driver.get_element('smrz', 'oneselect'))
+        qygm=Select(get_driver.get_element('glqy', 'oneselect'))
         qygm.select_by_visible_text("电力、热力、燃气及水生产和供应业")
         #点击所属行业
-        qygm=Select(get_driver.get_element('smrz', 'twoselect'))
+        qygm=Select(get_driver.get_element('glqy', 'twoselect'))
         qygm.select_by_visible_text("电力、热力生产和供应业")
         #点击所属行业
-        qygm=Select(get_driver.get_element('smrz', 'threeselect'))
+        qygm=Select(get_driver.get_element('glqy', 'threeselect'))
         qygm.select_by_visible_text("电力生产")
         #点击所属行业
-        qygm=Select(get_driver.get_element('smrz', 'fourselect'))
+        qygm=Select(get_driver.get_element('glqy', 'fourselect'))
         qygm.select_by_visible_text("太阳能发电")
         #点击大区
-        qygm=Select(get_driver.get_element('smrz', 'areaSelect'))
+        qygm=Select(get_driver.get_element('glqy', 'areaSelect'))
         qygm.select_by_visible_text("华中")
         sleep(3)
         #点击省
-        qygm=Select(get_driver.get_element('smrz', 'provinceSelect'))
+        qygm=Select(get_driver.get_element('glqy', 'provinceSelect'))
         qygm.select_by_visible_text("河南省")
         #点击市
-        qygm=Select(get_driver.get_element('smrz', 'citySelect'))
+        qygm=Select(get_driver.get_element('glqy', 'citySelect'))
         qygm.select_by_visible_text("郑州市")
         #点击县
-        qygm=Select(get_driver.get_element('smrz', 'regionSelect'))
+        qygm=Select(get_driver.get_element('glqy', 'regionSelect'))
         qygm.select_by_visible_text("管城回族区")
         #输入详细地址
-        get_driver.get_element('smrz','streetname').send_keys('中兴南路309号河南商会大厦26层')
+        get_driver.get_element('glqy','streetname').send_keys('中兴南路309号河南商会大厦26层')
         # #输入开业时间
-        # get_driver.get_element('smrz','opendate').send_keys('2023-07-18')
+        # get_driver.get_element('glqy','opendate').send_keys('2023-07-18')
         #输入经营开始时间
-        get_driver.get_element('smrz','optestart').send_keys('2023-07-18')
+        get_driver.get_element('glqy','optestart').send_keys('2023-07-18')
         #输入经营结束时间
-        get_driver.get_element('smrz','opteend').send_keys('2043-07-18')
+        get_driver.get_element('glqy','opteend').send_keys('2043-07-18')
         # 点击营业执照的上传图片
-        get_driver.get_element('smrz', 'yyzzlink').click()
+        get_driver.get_element('glqy', 'yyzzlink').click()
         #选择所需要上传的附件
         get_driver.uploadFile("C:\\Users\\Administrator\\Pictures\\1.jpg")
         sleep(3)
         #输入法人姓名
         frname=get_driver.generate_name()
-        get_driver.get_element('smrz','farnname').send_keys(frname)
-        #get_driver.get_element('smrz','farnname').send_keys('')
+        get_driver.get_element('glqy','farnname').send_keys(frname)
+        #get_driver.get_element('glqy','farnname').send_keys('')
         #输入法人身份证号
         fridnum=get_driver.generate_id()
         #fridnum = get_driver.generate_id()
-        get_driver.get_element('smrz','farnzjno').send_keys(fridnum)
-        #get_driver.get_element('smrz','farnzjno').send_keys('')
+        get_driver.get_element('glqy','farnzjno').send_keys(fridnum)
+        #get_driver.get_element('glqy','farnzjno').send_keys('')
         #输入身份证开始时间
-        get_driver.get_element('smrz','credstarttime').send_keys('2023-07-18')
+        get_driver.get_element('glqy','credstarttime').send_keys('2023-07-18')
         #输入身份证结束时间
-        get_driver.get_element('smrz','credendtime').send_keys('2043-07-18')
+        get_driver.get_element('glqy','credendtime').send_keys('2043-07-18')
         #输入法人手机号
         frtel=get_driver.generate_phone_number()
-        get_driver.get_element('smrz','farnshji').send_keys(frtel)
+        get_driver.get_element('glqy','farnshji').send_keys(frtel)
         #输入法人邮箱
-        get_driver.get_element('smrz','farndzyx').send_keys(frtel+'@qq.com')
+        get_driver.get_element('glqy','farndzyx').send_keys(frtel+'@qq.com')
         # 点击法人的身份证正面
-        get_driver.get_element('smrz', 'sfzzlink').click()
+        get_driver.get_element('glqy', 'sfzzlink').click()
         #选择所需要上传的附件
         get_driver.uploadFile("C:\\Users\\Administrator\\Pictures\\2.jpg")
         sleep(3)
         # 点击法人的身份证反面
-        get_driver.get_element('smrz', 'sfzflink').click()
+        get_driver.get_element('glqy', 'sfzflink').click()
         #选择所需要上传的附件
         get_driver.uploadFile("C:\\Users\\Administrator\\Pictures\\3.jpg")
         sleep(3)
         # 输入经办人姓名
         jbrname = get_driver.generate_name()
-        #get_driver.get_element('smrz', 'username').send_keys(jbrname)
+        #get_driver.get_element('glqy', 'username').send_keys(jbrname)
         #交e宝经办人
-        get_driver.get_element('smrz', 'username').send_keys('李磊')
+        get_driver.get_element('glqy', 'username').send_keys('李磊')
         # 输入经办人身份证号
         jbridnum = get_driver.generate_id()
-        #get_driver.get_element('smrz', 'idnum').send_keys(jbridnum)
-        get_driver.get_element('smrz', 'idnum').send_keys('412326199404237514')
+        #get_driver.get_element('glqy', 'idnum').send_keys(jbridnum)
+        get_driver.get_element('glqy', 'idnum').send_keys('412326199404237514')
         # 输入身份证开始时间
-        get_driver.get_element('smrz', 'idstartdate').send_keys('2020-11-30')
+        get_driver.get_element('glqy', 'idstartdate').send_keys('2020-11-30')
         # 输入身份证结束时间
-        get_driver.get_element('smrz', 'idenddate').send_keys('2040-11-30')
+        get_driver.get_element('glqy', 'idenddate').send_keys('2040-11-30')
         # # 输入经办人邮箱
-        # get_driver.get_element('smrz', 'email').send_keys(frtel + '@qq.com')
+        # get_driver.get_element('glqy', 'email').send_keys(frtel + '@qq.com')
         # 点击经办人的身份证正面
-        get_driver.get_element('smrz', 'usersfzzlink').click()
+        get_driver.get_element('glqy', 'usersfzzlink').click()
         #选择所需要上传的附件
         #get_driver.uploadFile("C:\\Users\\Administrator\\Pictures\\20k.jpg")
         get_driver.uploadFile("C:\\Users\\Administrator\\Pictures\\zhengmian.jpg")
         sleep(3)
         # 点击经办人的身份证反面
-        get_driver.get_element('smrz', 'usersfzflink').click()
+        get_driver.get_element('glqy', 'usersfzflink').click()
         #选择所需要上传的附件
         #get_driver.uploadFile("C:\\Users\\Administrator\\Pictures\\20k.jpg")
         get_driver.uploadFile("C:\\Users\\Administrator\\Pictures\\fanmian.jpg")
