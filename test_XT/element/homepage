@@ -31,4 +31,8 @@ rongziguanli_tab:
   iframe: None
   xpath: //*[@class="m3"]
   备注: 融资管理tab签
+caiwuguanli_tab:
+  iframe: None
+  xpath: //*[text()="财务管理"]
+  备注: 财务管理tab签
 

@@ -1,0 +1,63 @@
+pzdldj:
+  iframe: None
+  xpath: //*[text()="凭证审核（代理登记）"]
+  备注: 凭证代理登记
+okbtn:
+  iframe: None
+  xpath: //*[@value="ok"]
+  备注: 确定按钮
+crpayid:
+    iframe: None
+    xpath: //*[@id="searchForm"]/div/ul/li[1]/input
+    备注: 凭证编号
+searchButton:
+    iframe: None
+    xpath: //*[@id="searchButton"]
+    备注: 查询按钮
+zrcgbtn:
+    iframe: None
+    xpath: //*[text()="转让成功"]
+    备注: 转让成功
+qdbtn:
+  iframe: None
+  xpath: //*[@class="jbox-button jbox-button-focus"]
+  备注: 转让成功弹窗的确定按钮
+cxresult:
+  iframe: None
+  xpath: //*[@class="dataEmpty"]/span
+  备注: 查询结果
+qfcrpid:
+  iframe: None
+  xpath: //*[@id="crpqfDemofrom"]/fieldset/input[1]
+  备注: 锁定账户凭证编号输入框
+payaccno:
+  iframe: None
+  xpath: //*[@name="payaccno"]
+  备注: 付款账户
+payaccname:
+  iframe: None
+  xpath: //*[@name="payaccname"]
+  备注: 付款账户户名
+usage:
+  iframe: None
+  xpath: //*[@name="payaccname"]
+  备注: 付款附言
+crpSubDemBtn:
+  iframe: None
+  xpath: //*[@name="crpSubDemBtn"]
+  备注: 提交申请
+crpid:
+  iframe: None
+  xpath: //*[@id="zhsdDemofrom"]/fieldset/input
+  备注: 锁定账户凭证编号输入框
+tjsd:
+    iframe: None
+    xpath: //*[text()="提交锁定"]
+    备注: 提交锁定
+ffqd:
+    iframe: None
+    xpath: //*[text()="确定"]
+    备注: 非法表单已提交确定按钮
+
+
+

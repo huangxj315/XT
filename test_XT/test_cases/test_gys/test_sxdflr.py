@@ -42,6 +42,10 @@ class test_sxdflr():
         sckswno='91150404783022096R'
         # skf='内蒙古广纳煤业（集团）股份有限责任公司'
         # sckswno='911506936609936349'
+        # skf='山西三建集团有限公司'
+        # sckswno='911404001107629706'
+        # skf='青岛武晓集团股份有限公司'
+        # sckswno='91370200706493783J'
         #输入凭证编号
         billno = get_driver.get_bianhao()
         billid=get_driver.get_element('sxdflr', 'billid')
@@ -56,7 +60,7 @@ class test_sxdflr():
         enddate=get_driver.get_element('sxdflr', 'enddt')
         enddate.clear()
         # enddate.send_keys('20240329')
-        zddate=get_driver.get_workingday(10)
+        zddate=get_driver.get_workingday(100)
         xzdrq = zddate.replace("-", "")
         enddate.send_keys(xzdrq)
         #输入凭证金额

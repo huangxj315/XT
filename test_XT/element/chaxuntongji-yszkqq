@@ -1,7 +1,7 @@
-dzzqpz:
+yszkqq:
   iframe: None
-  xpath: //*[@href="/cnt/stat/creditpaylist-ui?qryType=1"]
-  备注: 电子债权凭证
+  xpath: //*[@href="/cnt/stat/yszkQqlist-ui?qryType=1"]
+  备注: 应收账款确权
 
 div_locator:
   iframe: None

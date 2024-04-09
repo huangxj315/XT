@@ -17,7 +17,7 @@ class test_edsqjl():
 
     def setup_method(self,method):
         mybase = base()
-        mybase.caseName('test_NW', method.__name__)
+        mybase.caseName('test_XT', method.__name__)
 
     @allure.feature("供应商-额度申请记录有查询、详情、下载操作")
     def test_edsqjl(self, get_driver):

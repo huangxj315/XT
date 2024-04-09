@@ -12,8 +12,8 @@ import allure
 import locale
 from base import base
 
-@allure.feature("供应商-签收非山西推送且是核心企业录入的电费、非电费凭证")
-class test_qsfsxpz():
+@allure.feature("供应商-签收凭证")
+class test_qssxpz():
 
     def setup_method(self,method):
         mybase = base()
@@ -21,14 +21,16 @@ class test_qsfsxpz():
 
 
 
-    @allure.story("签收债权凭证")
-    def test_qsfsxpz(self,get_driver):
+    @allure.story("签收模拟山西推送的债权凭证")
+    def test_qssxpz(self,get_driver):
         #用户登录
-        get_driver.start_houtai(1,'供应商')
+        get_driver.start_houtai(1,'山西电费供应商')
         # 设置当前的locale为你所使用的地区的格式
         locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
         amount=get_driver.get_paras('voucheramount', 1)
-        money=int(amount.replace(',', '').replace('.', ''))
+        if isinstance(amount, float):  # Check if amount is a float
+            amount = str(amount)  # Convert float to string
+        vchamount = int(amount.replace(',', '').replace('.', '').replace('元', ''))
         #点击签收凭证
         divs = get_driver.get_elements('mytodo', 'div_locator')
         # 定义一个标志变量
@@ -51,7 +53,7 @@ class test_qsfsxpz():
                     yfamt = float(voucheramount.replace(',', '').replace('元', ''))
                     pzamt=str(yfamt)
                     # 检查第一列和第二列是否等于指定的值，如果是，则单击该行元素中的“签收凭证”按钮
-                    if money == amt:
+                    if vchamount == amt:
                         last_cell.click()
                         # 设置标志变量为 True，表示应该跳出外层循环
                         should_break = True
@@ -59,8 +61,8 @@ class test_qsfsxpz():
             # 检查标志变量是否为 True，如果是，则跳出外层循环
             if should_break:
                 break
-        # 点击签署按钮
-        # table = get_driver.get_element('mytodo', 'qianshu2')
+        # # 点击签署按钮
+        # table = get_driver.get_element('mytodo', 'qianshu')
         # tbody = table.find_element_by_tag_name('tbody')
         # for tr in tbody.find_elements_by_tag_name('tr'):
         #     for a in tr.find_elements_by_tag_name('a'):
@@ -71,10 +73,11 @@ class test_qsfsxpz():
         #             get_driver.get_element('mytodo', 'okBtn').click()
         #             sleep(5)
         #             break
+        # 点击签署按钮
         qsbtns = get_driver.get_elements('mytodo', 'qianshu')
         for qsbtn in qsbtns:
             qsbtn.click()
-            sleep(11)
+            sleep(15)
             # 点击签署页面确定按钮按钮
             get_driver.get_element('mytodo', 'okBtn').click()
             # 等待弹窗出现，设置一个合理的等待时间
@@ -98,20 +101,20 @@ class test_qsfsxpz():
         with allure.step("验证该凭证已签收成功"):
             # 点击融资管理tab
             get_driver.get_element('homepage', 'rongziguanli_tab').click()
-            # 点击应收账款确权
-            get_driver.get_element('rongziguanli-yszkqq', 'yszkqq').click()
+            # 点击电子债权凭证
+            get_driver.get_element('rongziguanli-dzzqpz', 'dzzqpz').click()
             # 点击已确权
-            get_driver.get_element('rongziguanli-yszkqq', 'yiqianshou').click()
+            get_driver.get_element('rongziguanli-dzzqpz', 'yiqianshou').click()
             # 输入凭证金额
-            get_driver.get_element('rongziguanli-yszkqq', 'vouchmoney').send_keys(pzamt)
+            get_driver.get_element('rongziguanli-dzzqpz', 'vouchmoney').send_keys(pzamt)
             # 点击查询
-            get_driver.get_element('rongziguanli-yszkqq', 'searchButton').click()
+            get_driver.get_element('rongziguanli-dzzqpz', 'searchButton').click()
             sleep(2)
-            #获取确权编号，存到参数表中
+            #获取凭证编号，存到参数表中
             vouchernum = get_driver.get_element('rongziguanli-dzzqpz', 'qqbh').text  # 获取第一列元素
             with allure.step("将凭证编号存到参数表中"):
                 get_driver.parameter('test_XT', 'case', 'vouchernum', vouchernum, 1)
-            result = get_driver.get_element('rongziguanli-yszkqq', 'yqscxresult')
+            result = get_driver.get_element('rongziguanli-dzzqpz', 'yqscxresult')
             assert result.text == "共有1条，每页显示：20条"
 
 if __name__ == "__main__":

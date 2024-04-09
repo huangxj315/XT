@@ -220,9 +220,13 @@ xiazaibutton4:
   备注: 凭证下载
 dqscxresult:
   iframe: None
-  xpath: /html/body/div[3]/div[3]/div/div[3]/div/table/tbody/tr/td/div/span
+  xpath: //*[text()="共有1条，每页显示：20条"]
   备注: 待签收凭证金额查询结果
 yqscxresult:
   iframe: None
-  xpath: /html/body/div[3]/div[3]/div/div[3]/div/div/div/span[1]
-  备注: 待签收凭证金额查询结果
+  xpath: //*[text()="共有1条，每页显示：20条"]
+  备注: 已签收凭证金额查询结果
+qqbh:
+  iframe: None
+  xpath: //table[@class='dataList']/tbody/tr/td[1]
+  备注: 确权编号

@@ -35,9 +35,10 @@ class test_yfpzlr():
         year_month = curr_time.strftime('%Y%m')
         contno = curr_time.strftime(year_month + '%d%H%M%S')
         date_str = datetime.datetime.strftime(curr_time, '%Y-%m-%d')
-        amount = random.randint(1000, 99999)
+        amount = random.randint(100000, 9999999)
         gmf = '大唐华银电力股份有限公司'
         xsf = '赤峰宏基建筑（集团）有限公司'
+        # xsf='青岛武晓集团股份有限公司'
         # xsf = '内蒙古广纳煤业（集团）有限责任公司'
         # 选择业务类型（非电费）
         get_driver.get_element('entryvoucher', 'billtype_fdf').click()
@@ -55,7 +56,7 @@ class test_yfpzlr():
         get_driver.get_element('entryvoucher', 'webuploader-pick').click()
         sleep(3)
         #选择所需要上传的附件
-        get_driver.uploadFile("C:\\Users\\Administrator\\Pictures\\test.png")
+        get_driver.uploadFile("C:\\Users\\Administrator\\Pictures\\cont.png")
         # 点击上传附件后的确定按钮
         get_driver.get_element('entryvoucher', 'uploadbutton').click()
         # 点击导入发票信息
@@ -80,7 +81,7 @@ class test_yfpzlr():
         # 点击选择文件按钮
         get_driver.get_element('entryvoucher', 'selectbutton').click()
         #选择所需要上传的附件
-        get_driver.uploadFile("C:\\Users\\Administrator\\Pictures\\test.png")
+        get_driver.uploadFile("C:\\Users\\Administrator\\Pictures\\fapiao.jpg")
         sleep(3)
         # 点击导入按钮
         get_driver.get_element('entryvoucher', 'impBtn').click()
@@ -93,6 +94,7 @@ class test_yfpzlr():
         get_driver.get_element('entryvoucher', 'firmname_input').send_keys(xsf)
         #点击销售方查询
         get_driver.get_element('entryvoucher', 'btnGray').click()
+        sleep(3)
         #选择销售方
         get_driver.get_element('entryvoucher', 'select').click()
         #将销售方名称存到参数表
@@ -106,7 +108,7 @@ class test_yfpzlr():
         #输入应付金额
         get_driver.get_element('entryvoucher', 'paymoney_input').send_keys(amount)
         #获取下一个工作日
-        workingday=get_driver.get_workingday(10)
+        workingday=get_driver.get_workingday(100)
         #输入付款日
         get_driver.get_element('entryvoucher', 'paydate').send_keys(workingday)
         #输入摘要

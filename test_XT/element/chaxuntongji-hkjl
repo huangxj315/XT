@@ -1,14 +1,15 @@
-fxxxcx:
+hkjl:
   iframe: None
-  xpath: //*[@href="/cnt/stat/payinterest/list-ui"]
-  备注: 付息信息查询
-xqbutton:
+  xpath: //*[@href="/cnt/stat/repaylist-ui"]
+  备注: 还款记录
+
+div_locator:
   iframe: None
-  xpath: //div[@class='list listScroll']/table/tbody/tr[1]/td[12]/a
-  备注: 详情
+  xpath: //*[@class="list"]
+  备注: div列表数据
 closebutton:
   iframe: None
-  xpath: //*[@class="btnGray bigBtn"]
+  xpath: //*[@class="btnArea"]
   备注: 关闭按钮
 searchButton:
   iframe: None

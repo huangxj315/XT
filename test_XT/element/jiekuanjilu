@@ -10,7 +10,7 @@ div_locator:
 pzxx:
   iframe: None
   xpath: //*[@indextab="2"]
-  备注: 凭证信息
+  备注: 确权信息
 czjl:
   iframe: None
   xpath: //*[@indextab="6"]

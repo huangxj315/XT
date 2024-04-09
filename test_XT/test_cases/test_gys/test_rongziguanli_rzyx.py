@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 @Auth ： 黄香杰
-@File ：test_chaxuntongji_edsqjl.py
+@File ：test_chaxuntongji_rzyx.py
 
 """
 import pytest
@@ -17,7 +17,7 @@ class test_rzyx():
 
     def setup_method(self,method):
         mybase = base()
-        mybase.caseName('test_NW', method.__name__)
+        mybase.caseName('test_XT', method.__name__)
 
     @allure.feature("供应商-融资意向有补充附件、详情、推荐信息操作")
     def test_rzyx(self, get_driver):

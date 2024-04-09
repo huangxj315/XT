@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-@Time ： 2023/3/30 10:58
 @Auth ： 黄香杰
 @File ：conftest.py
 
@@ -9,7 +8,7 @@ from selenium import webdriver
 import pytest
 from base import base
 import os
-from test_XT.base.base_XT import base_NW
+from test_XT.base.base_XT import base_XT
 import allure
 from PIL import ImageGrab
 import cv2
@@ -27,7 +26,7 @@ def get_driver():
     # #添加初始系统测试数据
     #开始录制
     global video_flag
-    video_flag = False
+    video_flag = True
     #谷歌接口日志配置
     caps = {
         'browserName': 'chrome',
@@ -54,10 +53,10 @@ def get_driver():
     driver = webdriver.Chrome(options=option, executable_path=r'E:\Python\chromedriver.exe',desired_capabilities=caps)
     #窗口最大
     driver.maximize_window()
-    NW = base_NW(driver)
+    XT = base_XT(driver)
     th = threading.Thread(target=video_record,args = (getVideoPath(),))
     th.start()
-    yield NW
+    yield XT
     video_flag = True
     driver.quit()
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 @Auth ： 黄香杰
-@File ：test_chaxuntongji_edsqjl.py
+@File ：test_chaxuntongji_dzzqpz.py
 
 """
 import pytest
@@ -17,9 +17,9 @@ class test_dzzqpz():
 
     def setup_method(self,method):
         mybase = base()
-        mybase.caseName('test_NW', method.__name__)
+        mybase.caseName('test_XT', method.__name__)
 
-    @allure.feature("供应商-电子债权凭证有可用、流转中、已融资、已转让、已到期tab页面")
+    @allure.feature("供应商-电子债权凭证有可用、流转中、已融资、已支付、已到期tab页面")
     def test_keyong(self, get_driver):
         # 用户登录
         get_driver.start_houtai(1, '供应商')

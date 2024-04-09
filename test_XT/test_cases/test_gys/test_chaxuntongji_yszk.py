@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 @Auth ： 黄香杰
-@File ：test_chaxuntongji_edsqjl.py
+@File ：test_chaxuntongji_yszk.py
 
 """
 import pytest
@@ -13,11 +13,11 @@ import os
 
 
 @allure.feature("供应商-查询统计-应收账款")
-class test_jkjl():
+class test_yszk():
 
     def setup_method(self,method):
         mybase = base()
-        mybase.caseName('test_NW', method.__name__)
+        mybase.caseName('test_XT', method.__name__)
 
     @allure.feature("供应商-应收账款有查询、下载操作")
     def test_yszk(self, get_driver):

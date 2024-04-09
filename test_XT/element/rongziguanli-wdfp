@@ -18,6 +18,58 @@ drawinv:
   iframe: None
   xpath: //*[@name="drawinv"]
   备注: 申请发票
+payaddr:
+  iframe: None
+  xpath: //*[@name="payaddr"]
+  备注: 请输入地址
+paytel:
+  iframe: None
+  xpath: //*[@name="paytel"]
+  备注: 请输入电话
+khh:
+  iframe: None
+  xpath: //*[@name="fzhSpan"]
+  备注: 请选择开户行
+choosekhh:
+  iframe: //*[@id="jbox-iframe"]
+  xpath: //table[@class="dataList"]/tbody/tr[1]/td[3]/a
+  备注: 选择开户行
+payaccno:
+  iframe: None
+  xpath: //*[@name="payaccno"]
+  备注: 请输入账号
+memo:
+  iframe: None
+  xpath: //*[@name="memo"]
+  备注: 请输入备注
+receivname:
+  iframe: None
+  xpath: //*[@name="receivname"]
+  备注: 请输入收件人名称
+rcphone:
+  iframe: None
+  xpath: //*[@name="rcphone"]
+  备注: 请输入收件人手机号
+provinceSelect:
+  iframe: None
+  xpath: //*[@id="provinceSelect"]
+  备注: 选择省份
+citySelect:
+  iframe: None
+  xpath: //*[@id="citySelect"]
+  备注: 选择城市
+regionSelect:
+  iframe: None
+  xpath: //*[@id="regionSelect"]
+  备注: 选择区
+rcaddr:
+  iframe: None
+  xpath: //*[@id="rcaddr"]
+  备注: 输入详情地址信息
+saveBtn:
+  iframe: None
+  xpath: //*[@id="saveBtn"]
+  备注: 确认申请按钮
 fpxq:
   iframe: None
   xpath: //table[@class='dataList']/tbody/tr[1]/td[8]/a[1]

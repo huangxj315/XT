@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-@Time ： 2023/3/30 10:25
 @Auth ： 黄香杰
 @File ：base_NW.py
 
 """
 import datetime
+from workalendar.asia import China
+from chinese_calendar import is_holiday,is_in_lieu,is_workday
 import random
 import string
 import allure
@@ -20,6 +21,8 @@ import yaml
 import time
 from pykeyboard import PyKeyboard
 from sympy.printing.numpy import const
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
 
 from base import base
 from time import sleep
@@ -30,10 +33,7 @@ url_file = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file_
 user_file = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))),'parameter','users.xls')
 parameter_file = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))),'parameter','parameter.xls')
 
-
-
-
-class base_NW(base):
+class base_XT(base):
     def __init__(self,driver):
         self.driver = driver
 
@@ -105,6 +105,11 @@ class base_NW(base):
         sxdflrurl = self.get_paras('sxdflrurl', 1)
         #登录仿真后台系统
         self.driver.get(sxdflrurl)
+    #获取凭证账户锁定录入地址
+    def get_pzzhsdurl(self):
+        pzzhsdurl = self.get_paras('pzzhsdurl', 1)
+        #登录仿真后台系统
+        self.driver.get(pzzhsdurl)
 
 
     #获取登录用户名、密码、验证码
@@ -181,6 +186,20 @@ class base_NW(base):
         time.sleep(3)
         keyboard.tap_key(keyboard.enter_key)
         time.sleep(3)
+    def get_newtab(self):
+        # time.sleep(2)
+        driver = webdriver.Chrome()
+        # driver.find_element_by_tag_name('body').send_keys(Keys.CONTROL + 't')
+        # new_window = driver.execute_script('window.open("https://www.google.com");')
+        # # 切换到新打开的窗口
+        # driver.switch_to.window(new_window)
+        # KeyboardAction(driver).send_keys(Keys.CONTROL, 't')
+        # actions = ActionChains(driver)
+        # actions.key_down(Keys.CONTROL).send_keys('t').key_up(Keys.CONTROL).perform()
+        # driver.get('http://www.example.com')
+        driver.execute_script('window.open("", "_blank");')
+        #driver.switch_to.window('tab')
+
     def get_current(self):
         time.sleep(2)
         windows = self.driver.window_handles
@@ -200,6 +219,9 @@ class base_NW(base):
         time.sleep(2)
         windows = self.driver.window_handles
         return self.driver.switch_to.window(windows[len(windows) - 1])
+    def get_current_url(self):
+        windows = self.driver.window_handles
+        return self.driver.switch_to_window(windows[0])
 
     def scroll_foot(self):
         js = "window.scrollTo(0,document.body.scrollHeight)"
@@ -241,6 +263,9 @@ class base_NW(base):
         if sheet == 'sxdflrurl':
             paraSheet = paraFile.sheet_by_name('sxdflrurl')
             return paraSheet.cell_value(num-1, 0)
+        if sheet == 'pzzhsdurl':
+            paraSheet = paraFile.sheet_by_name('pzzhsdurl')
+            return paraSheet.cell_value(num-1, 0)
         if sheet == 'forwarder':
             paraSheet = paraFile.sheet_by_name('forwardername')
             return paraSheet.cell_value(num-1, 0)
@@ -249,13 +274,13 @@ class base_NW(base):
         # 定义日期格式
         date_format = "%Y-%m-%d"
         # 获取今天的日期
-        today = pd.Timestamp(datetime.date.today())
+        today = datetime.date.today()
         count = 0
         # 遍历日期范围
         while count < n:
-            today += pd.Timedelta(days=1)
-            # 判断是否为工作日
-            if today.weekday() < 5:
+            today += datetime.timedelta(days=1)
+            # 判断是否为工作日和非法定假日
+            if is_workday(today) or is_in_lieu(today) and not is_holiday(today):
                 count += 1
         working_day = today.strftime(date_format)
         return working_day

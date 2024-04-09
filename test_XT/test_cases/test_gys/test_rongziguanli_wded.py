@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 @Auth ： 黄香杰
-@File ：test_chaxuntongji_edsqjl.py
+@File ：test_chaxuntongji_wded.py
 
 """
 import pytest
@@ -17,7 +17,7 @@ class test_wded():
 
     def setup_method(self,method):
         mybase = base()
-        mybase.caseName('test_NW', method.__name__)
+        mybase.caseName('test_XT', method.__name__)
 
     @allure.feature("供应商-我的额度有查看详情操作")
     def test_wded(self, get_driver):

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 @Auth ： 黄香杰
-@File ：test_chaxuntongji_edsqjl.py
+@File ：test_chaxuntongji_wyhk.py
 
 """
 import pytest
@@ -17,7 +17,7 @@ class test_rzgl():
 
     def setup_method(self,method):
         mybase = base()
-        mybase.caseName('test_NW', method.__name__)
+        mybase.caseName('test_XT', method.__name__)
 
     @allure.feature("供应商-我要还款有查询、查看详情操作")
     def test_wyhk(self, get_driver):
@@ -26,7 +26,9 @@ class test_rzgl():
         # 点击融资管理tab
         get_driver.get_element('homepage', 'rongziguanli_tab').click()
         # 点击借款编号查看借款详情
-        get_driver.get_element('rongziguanli-wyhk', 'loannum').click()
+        loannums=get_driver.get_elements('rongziguanli-wyhk', 'loannum')
+        if loannums:
+            loannums[0].click()
         # 点击关闭按钮
         get_driver.get_next_handle()
         get_driver.get_element('rongziguanli-wyhk', 'closebutton').click()
